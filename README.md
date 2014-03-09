@@ -1,7 +1,6 @@
 SoccerCoin
 ==========
-SoccerCoin is born for The 2014 World Cup. It is the first Bitcoin specially designed for the Soccer fans. We will apply a lot of applications around Soccer world, and the wallet and Mobile Wallet will release soon.
--
+
 Website:
 http://www.soccercoin.co.uk
 -
