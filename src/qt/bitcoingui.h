@@ -102,6 +102,8 @@ private:
     QAction *changePassphraseAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
+    QAction *webWallet;
+    QAction *sccBetting;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -163,6 +165,11 @@ public slots:
     void incomingTransaction(const QString& date, int unit, qint64 amount, const QString& type, const QString& address);
 
 private slots:
+
+    /*open some urls*/
+    void openUrl();
+    void openUrl2();
+
     /** Switch to overview (home) page */
     void gotoOverviewPage();
     /** Switch to history (transactions) page */

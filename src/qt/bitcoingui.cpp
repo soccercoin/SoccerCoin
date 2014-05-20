@@ -201,6 +201,15 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
+
+    webWallet = new QAction(QIcon(""), tr("&WebWallet"), this);
+    webWallet->setToolTip(tr("Web Wallet"));
+    tabGroup->addAction(webWallet );
+    sccBetting = new QAction(QIcon(""), tr("&Soccercoin Betting"), this);
+    sccBetting->setToolTip(tr("Visit Our Soccercoin Betting Website"));
+    tabGroup->addAction(sccBetting );
+
+
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -211,6 +220,10 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
+
+    connect(webWallet, SIGNAL(triggered()), this, SLOT(openUrl()));
+    connect(sccBetting, SIGNAL(triggered()), this, SLOT(openUrl2()));
+
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setStatusTip(tr("Quit application"));
@@ -295,6 +308,10 @@ void BitcoinGUI::createToolBars()
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
+    toolbar->addAction(webWallet);
+    toolbar->addAction(sccBetting);
+
+
 }
 
 void BitcoinGUI::setClientModel(ClientModel *clientModel)
@@ -506,6 +523,21 @@ void BitcoinGUI::gotoVerifyMessageTab(QString addr)
 {
     if (walletFrame) walletFrame->gotoVerifyMessageTab(addr);
 }
+
+
+
+void BitcoinGUI::openUrl()
+{
+ QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString("http://wallet.soccercoin.co.uk")));
+}
+
+void BitcoinGUI::openUrl2()
+{
+ QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString("http://bet.soccercoin.co.uk")));
+}
+
+
+
 
 void BitcoinGUI::setNumConnections(int count)
 {
